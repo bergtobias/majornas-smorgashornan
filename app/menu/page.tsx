@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import { items } from "./items";
 import { useState } from "react";
 import Image from "next/image";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 type Item = {
   href: string;
@@ -29,9 +36,10 @@ export default function Menu() {
 
   return (
     <div className=" ">
-      <nav className=" grid grid-cols-3 gap-2 mb-6 z-10">
+      <nav className=" grid grid-cols-3 gap-2 mb-6 z-10 md:grid-cols-6">
         {uniqueItems.map((item, index) => (
           <Button
+            className="boder border-primary"
             onClick={() => handleButtonClick(item.variant)}
             key={item.href}
             variant={
@@ -42,15 +50,15 @@ export default function Menu() {
           </Button>
         ))}
       </nav>
-      <div className="grid grid-cols-1 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-5">
         {items
           .filter((item) => filterButtons.includes(item.variant))
           .map((item) => (
-            <div
+            <Card
               key={item.href}
-              className="border rounded overflow-hidden border-secondary-foreground/20 shadow-md"
+              className="bg-primary/20 border border-primary/50 overflow-hidden"
             >
-              <div className="relative w-full aspect-square h-72 ">
+              <CardHeader className="relative w-full aspect-square h-72 ">
                 <Image
                   src={`/menu/${item.href}`}
                   alt="bild"
@@ -59,12 +67,14 @@ export default function Menu() {
                   className=" shadow"
                   quality={100}
                 />
-              </div>
-              <div className=" p-2">
-                <h2 className="text-lg font-bold my-2">{item.title}</h2>
-                <p className="leading-relaxed">{item.description}</p>
-              </div>
-            </div>
+              </CardHeader>
+              <CardContent>
+                <CardTitle className=" my-2">{item.title}</CardTitle>
+                <CardDescription className="leading-relaxed text-base">
+                  {item.description}
+                </CardDescription>
+              </CardContent>
+            </Card>
           ))}
       </div>
     </div>

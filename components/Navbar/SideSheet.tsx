@@ -20,7 +20,7 @@ const SideSheet = () => {
   return (
     <Sheet open={sideOpen} onOpenChange={() => setSideOpen(!sideOpen)}>
       <SheetTrigger asChild>
-        <div className="border rounded shadow h-10 w-12 flex justify-center items-center ">
+        <div className="border rounded shadow h-10 w-12 flex justify-center items-center bg-background ">
           <svg
             stroke-width="1.5"
             viewBox="0 0 24 24"
@@ -31,23 +31,23 @@ const SideSheet = () => {
             <path
               d="M3 5H11"
               stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></path>
             <path
               d="M3 12H16"
               stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></path>
             <path
               d="M3 19H21"
               stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></path>
           </svg>
         </div>
